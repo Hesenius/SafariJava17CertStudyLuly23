@@ -40,6 +40,8 @@ Java Ranch / Code Ranch
  - Created for, and still heavily focused on, certification
  - Lots of resources, book reviews, sample quizzes (caution!)
  - JavaRanch.com
+ - and their FAQ on OCP 17:
+   https://www.coderanch.com/wiki/746889/certification/OCP-FAQ
 
 Java 17 API documentation:
  - https://docs.oracle.com/en/java/javase/17/docs/api/index.html
