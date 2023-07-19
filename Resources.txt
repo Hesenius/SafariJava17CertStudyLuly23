@@ -1,0 +1,51 @@
+Resources
+---------
+
+Quiztool:
+ - https://dancingcloudservices.net/quiz-tool/
+
+Github repo (NOTE: this will vanish in two weeks, clone/download before then!)
+ - https://github.com/SimonHGR/SafariJava17CertStudy
+
+Pre-recorded Certification videos
+Java 17 Cert study:
+ - coming soon, it's with the editors. Will show up on the
+   Safari platform in perhaps a week or two?
+Java 11 Cert study:
+ - https://learning.oreilly.com/videos/java-se-11/9780137586875/
+OCA Java 8 (more detailed on basics, and all relevant for 11 & 17!)
+ - https://learning.oreilly.com/videos/oca-java-se/9780134427201
+
+More Java videos relevant for Java 8, 11, and 17 certification:
+ - Functional programming with Java:
+   https://learning.oreilly.com/videos/functional-programming-for/9780134778235
+ - Java Collections:
+   https://learning.oreilly.com/videos/modern-java-collections/9780134663524
+ - Java Programming Essentials:
+   https://learning.oreilly.com/videos/java-programming-essentials/9780137475438/
+ - Core Java Data Types:
+   https://learning.oreilly.com/videos/core-java-data/9780137368624/
+ - Up and Running with the Java Platform Module System
+   (Note, this is *not relevant* to Java 8 certification):
+   https://learning.oreilly.com/videos/up-and-running/9780137475216/
+ - And other live classes
+
+Oracle Java Magazine
+ - https://blogs.oracle.com/javamagazine/
+ - https://blogs.oracle.com/javamagazine/issue-archives
+ - Look for the "fix this" column in the older style issues, focused on exam-like questions with discussions of the answers and how to think about the questions
+ 
+Java Ranch / Code Ranch
+ - Forum site that's actually helpful to learners
+ - Created for, and still heavily focused on, certification
+ - Lots of resources, book reviews, sample quizzes (caution!)
+ - JavaRanch.com
+ - Or direct to the Certification FAQ
+   https://coderanch.com/t/659883/Wiki/Ocjp-Faq
+
+Java 17 API documentation:
+ - https://docs.oracle.com/en/java/javase/17/docs/api/index.html
+
+Java tutorial (Java 8 only, sadly, but excellent for all core language material)
+ - https://docs.oracle.com/javase/tutorial/
+ 
