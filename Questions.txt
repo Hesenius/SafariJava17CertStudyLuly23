@@ -1,0 +1,231 @@
+Q) Which are legal:
+
+   A) class X {
+        var x = 99;
+      }
+   B) void doStuff(var x) { }
+   C) void doStuff() {
+        var x;
+        x = 100;
+      }
+   D) void doStuff() {
+        var x = 100;
+      }
+   E) void doStuff() {
+        var x = null;
+      }
+
+Q)
+A) for (var x = 0; x < 3; x++)
+System.out.println(x);
+
+B) try (var in = new FileReader("");
+var out = new FileWriter("")) {
+}
+
+C) try (FileReader in = new FileReader("")) {
+} catch (var ex) { }
+
+D) void doStuff() {
+var x = new int[]{ 1, 2, 3 };
+}
+
+E) void doStuff() {
+var x = { 1, 2, 3 };
+}
+
+Q) Given:
+var x = true ? "99" : 99;
+
+What is the type of x?
+A) none, it's fails to compile
+B) int
+C) String
+D) Object
+E) none of the above
+
+Q)  Given:
+
+String s1 = new String("Hello");
+s1.concat(" world");
+System.out.println(s1);
+
+What is the output?
+A) Hello World
+B) Hello
+C) World
+D) Doesn't compile
+E) Exception at runtime
+
+Q) Given:
+   
+    String message = """Hello\
+    Java 17 World!""";
+    System.out.println(message + "XXX");
+
+What is the result?
+A) Compilation fails
+B) Exception at runtime
+C) Hello
+   Java 17 World!XXX
+D) Hello Java 17 World!XXX
+E) Hello Java 17 World!
+   XXX
+
+Q) Given:
+    String message = """
+        Hello
+            Java 17 World!""";
+    System.out.println(message + "XXX");
+What is the result?
+A)
+Hello
+Java 17 World!XXX
+B)
+Hello
+    Java 17 World!XXX
+C)
+Hello
+Java 17 World!
+XXX
+D)
+    Hello
+        Java 17 World!
+XXX
+
+Q) Given:
+
+public static void main(String[] args) {
+  int x = -1;
+  System.out.println(x & 5);
+}
+
+What is the result?
+A) Compilation fails
+B) Exception at runtime
+C) -1
+D) 0x00000005
+E) 5
+
+Q) Given:
+  public static boolean getValue() {
+    System.out.println("Getting value");
+    return true;
+  }
+
+and:
+
+boolean b1 = false;
+System.out.println(b1 & getValue());
+
+What is the result:
+A) Compilation fails
+B) false
+C) true
+D) Getting value
+   false
+E) Getting value
+   true
+
+Q) Which print "true"
+A) String s = "Hello";
+   String t = "He";
+   t += "llo";
+   sout(s == t);
+B) String s = "Hello";
+   String t = "He";
+   t += "llo";
+   sout(s.equals(t));
+C) StringBuilder s = new StringBuilder("Hello");
+   StringBuilder t = new StringBuilder("He");
+   t.append("llo");
+   sout(s.equals(t));
+D) List<String> ls = List.of("Fred", "Jim");
+   List<String> ls2 = new ArrayList<>(ls);
+   sout(ls.equals(ls2));
+E) LocalDate ld = LocalDate.of(2021, 3, 29);
+   LocalDate ld2 = LocalDate.of(2021, 3, 29);
+   sout(ld.equals(ld2));
+
+Q) Given:
+class X {
+  static String h = "Hel" + "lo";
+}
+And, in a separately compiled source file:
+    String s1 = "Hello";
+    String s2 = new StringBuilder("Hello").toString();
+    String s3 = s2.intern();
+
+Which are true?
+A) s1 == s2
+B) s2 == s3
+C) s1 == s3
+D) X.h == s1
+E) None of the above
+
+Q) Given:
+class Base {
+  void doBaseStuff() { System.out.println("doBaseStuff"); }
+}
+and:
+class Sub extends Base {
+  void doBaseStuff() { System.out.println("doSubStuff"); }
+  void doOtherStuff() { System.out.println("doOtherStuff"); }
+}
+and:
+  Base b = new Sub();
+  ((Sub) b).doOtherStuff();
+
+What is the result?
+A) doSubStuff
+B) doOtherStuff
+C) doBaseStuff
+D) Exception at runtime
+E) Compilation failure
+
+Q) Given:
+class Base {
+  void doBaseStuff() { System.out.println("doBaseStuff"); }
+}
+
+class Sub extends Base {
+  void doBaseStuff() { System.out.println("doSubStuff"); }
+  void doOtherStuff() { System.out.println("doOtherStuff"); }
+}
+
+  Base b = new Sub();
+  ((Runnable) b).run();
+
+What is the result?
+A) doSubStuff
+B) doOtherStuff
+C) doBaseStuff
+D) Exception at runtime
+E) Compilation failure
+
+Q) Given:
+    Object obj = "Hello";
+    boolean answered = false;
+    if (obj instanceof String) {
+      String str = (String)obj;
+      if (str.length() > 3) {
+        System.out.println(str);
+        answered = true;
+      }
+    }
+    if (!answered) System.out.println("Nope");
+Which replace the if clause to produce the same output?
+A)    System.out.println(obj instanceof String str && str.length() > 3 ? str : "Nope");
+B)    if (obj instanceof String str when str.length() > 3)
+        System.out.println(str);
+      else
+        System.out.println("Nope");
+C)    if (obj instanceof String str if str.length() > 3)
+        System.out.println(str);
+      else
+        System.out.println("Nope");
+D)    System.out.println(obj instanceof String.class str && str.length() > 3 ? str : "Nope");
+E)    if (!(obj instanceof String str) || str.length() <= 3)
+        System.out.println("Nope");
+      else
+        System.out.println(str);

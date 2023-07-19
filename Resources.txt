@@ -9,8 +9,7 @@ Github repo (NOTE: this will vanish in two weeks, clone/download before then!)
 
 Pre-recorded Certification videos
 Java 17 Cert study:
- - coming soon, it's with the editors. Will show up on the
-   Safari platform in perhaps a week or two?
+ - https://learning.oreilly.com/videos/java-se-17/9780138194796/
 Java 11 Cert study:
  - https://learning.oreilly.com/videos/java-se-11/9780137586875/
 OCA Java 8 (more detailed on basics, and all relevant for 11 & 17!)
