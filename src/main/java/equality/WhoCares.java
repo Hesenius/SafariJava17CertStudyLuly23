@@ -11,11 +11,13 @@ class Thing extends java.lang.Object {
 
   @Override
 //  public boolean equals(Thing other) { //NOT OVERRIDE
-    public boolean equals(Object other) {
+    public final boolean equals(Object other) {
       System.out.println("Testing a Thing");
-      return false;
+      return other instanceof Thing t && this.count == t.count;
+//      return false;
     }
   }
+
   public class WhoCares {
   public static void main(String[] args) {
     List<String> names = List.of("Fred", "Jim");
