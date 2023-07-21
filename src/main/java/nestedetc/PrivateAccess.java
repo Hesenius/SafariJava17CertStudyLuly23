@@ -30,7 +30,17 @@ class Outer1 {
 //  static Inner1 makeOne() { return new Inner1(); }
   static Inner1 makeOne() { return (new Outer1()).new Inner1(); }
 //  Inner1 makeOne() { return this.new Inner1(); }
+//  Inner1 makeOne() { return new Inner1(); }
 }
+
+/*
+Exercises:
+1) create a Builder e.g.:
+  MyType.builder().name("Fred").count(99)...build();
+  (Static nested class)
+2) create a Iterable thing (list-like)
+   implement the Iterator as a instance inner
+ */
 
 /*
     void showX() { sop("x is " + x); }

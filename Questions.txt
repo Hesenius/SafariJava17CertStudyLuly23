@@ -505,3 +505,207 @@ B) showY can be added at line n2
 C) showAnotherY can be added at line n2
 D) makeOne can be added at line n1
 E) makeOne can be added at line n2
+
+Q)
+Given:
+interface Int1 {
+  default void doStuff() {
+    System.out.println("Int1.doStuff()");
+  }
+}
+class Cl1 implements Int1 {
+  void doStuff() {
+    System.out.println("Cl1.doStuff");
+  }
+}
+
+What is the result of a call:
+new Cl1().doStuff();
+
+A) Compilation fails
+B) RuntimeException
+C) Int1.doStuff()
+D) Cl1.doStuff()
+E) Int1.doStuff()
+   Cl1.doStuff()
+
+"Default" accessibility means several differnt things:
+- generally it means "accessible in this package"
+--- NOTE!!! "protected" is LESS protected than this
+    (it's all of the above--i.e. package, but ALSO subtypes using
+    a reference of the subtype type)
+- in an interface, it means public!!!
+- in a general constructor, it means same accessibility as the class
+- in an enum constructor, it means private
+
+Q) Given:
+interface IntX {
+  default void doStuff() { System.out.println("IntX.doStuff()"); }
+}
+interface IntY {
+  default void doStuff() { System.out.println("IntY.doStuff()"); }
+}
+class ClQ implements IntX, IntY {}
+
+What is the result of a call:
+    new ClQ().doStuff();
+
+A) Compilation fails
+B) RuntimeException
+C) IntX.doStuff()
+D) IntY.doStuff()
+E) C1QdoStuff()
+
+Q) Given:
+class Mere {
+  int x = 100;
+  int y;
+  { y = calculate(); System.out.println("y is " + y);  }
+  public int calculate() { return x * 2; }
+}
+and:
+class Enfant extends Mere {
+  int x = 150;
+  public int calculate() { return x * 3; }
+}
+and a call: new Enfant()
+What is the result
+A) No output
+B) y is 450
+C) y is 300
+D) y is 200
+E) y is 0
+
+Q)
+class Parent {
+  Parent(int x) { y += x; out.print(", P-c: y is " + y); }
+  static { out.print(", P-si: x is " + Parent.x); }
+  static int x = 99;
+  int y = 100;
+  { y++; out.print(", P-i: y is " + y); }
+}
+class Child extends Parent {
+  int x = 200;
+  static int y = 300;
+  Child() { super(y); }
+  Child(int x) { this(); }
+  { out.print(", C-i x: is " + x); }
+  static { out.print(", C-si: y is " + y); }
+}
+    out.print("Hello!"); new Child(-1); out.println(" Goodbye!"); }
+What is the result?
+A) Compilation fails
+B) Exception at runtime
+C) Hello!, P-si: x is 0, C-si: y is 300, P-i: y is 101, P-c: y is 401, C-i x: is 200 Goodbye!
+D) , P-si: x is 0, C-si: y is 300Hello!, P-i: y is 101, P-c: y is 401, C-i x: is 200 Goodbye!
+E) Hello!, P-si: x is 99, C-si: y is 300, P-i: y is 101, P-c: y is 100Goodbye!
+
+Q) Given:
+      ???? (s, t) -> s.length() - t.length();
+
+Which are correct inserted in place of ????
+A) BiFunction<String, String, Integer> f =
+B) BiPredicate<String> f =
+C) Comparator<String> f =
+D) Supplier<String, Integer> f =
+E) BinaryOperator<String> f =
+
+Q)   Which are correct declarations?
+A) Comparator<String> cs = s1, s2 -> s2.compareTo(s1);
+B) Comparator<String> cs = (s1, s2) -> s2.compareTo(s1);
+                           (var s1, var s2) -> s2.compareTo(s1);
+C) Comparator<String> cs = (var s1, String s2) -> s2.compareTo(s1);
+D) Comparator<String> cs = (var s1, s2) -> s2.compareTo(s1);
+E) Comparator<String> cs = (String s1, String s2) -> s2.compareTo(s1);
+
+Q) Given, in a single file X.java:
+interface ArbInter {}
+final class Y implements X {}
+sealed interface X /* point x */{}
+// line n1
+Which is/are true?
+A) the code compiles as it stands
+B) the code compiles if the following is added at point x
+permits Y, Z
+AND this is added at line 1
+class Z implements X {}
+C) the code compiles if the following is added at point x
+permits Y, Z
+AND this is added at line 1
+record Z(String name) implements X {}
+D) the code compiles if the following is added at point x
+   permits Y extends ArbInter
+E) the code compiles if the following is added at line n1
+non-sealed abstract class Z implements X permits Q {}
+final class Q extends Z {}
+
+Q) Given:
+  StringBuilder sb1 = new StringBuilder("Hello");
+  StringBuilder sb2 = sb1;
+  sb1 = null;
+
+Which is true?
+A) sb1 is unreferenced and eligible for GC
+B) sb1 and sb2 are unreferenced and eligible for GC
+C) No objects are eligible for GC
+
+Q) Given:
+StringBuilder sb1 = new StringBuilder("Hello");
+StringBuilder sb2 = new StringBuilder("World");
+sb1 = null;
+sb2 = sb1;
+
+Which is true?
+A) Object containing "Hello" is unreferenced and eligible for GC
+B) Object containing "World" is unreferenced and eligible for GC
+C) No objects are eligible for GC
+
+Q)
+static String doStuff(String s) {
+  s = new String("Hello");
+  return new String(s);
+}
+
+String y = doStuff("Hello");
+// line n1
+
+how many String objects are eligible for GC at line n1
+A) 0
+B) 1
+C) 2
+D) 3
+
+Q) Given
+static int doStuff(String s) {
+  s = new String("Hello");
+  return s.length();
+}
+and:
+  int y = doStuff("Hello");
+  // line n1
+
+how many String objects are eligible for GC at line n1
+A) 0
+B) 1
+C) 2
+D) 3
+
+Q) Given, rooted on the base of the classpath:
+---file: localization/MyResources.properties
+name=Fred
+-----------------------------------------------
+---file: localization/MyResources_de.properties
+name=Helmut
+-----------------------------------------------
+and:
+    Locale.setDefault(Locale.FRENCH);
+    ResourceBundle bundle = PropertyResourceBundle.getBundle(
+        "MyResources");
+    System.out.println("Name is " + bundle.getString("name"));
+
+What is the result?
+A) Name is Helmut
+B) Name is Fred
+C) Name is null
+D) an exception is thrown
+E) compilation fails
